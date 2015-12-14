@@ -14,12 +14,12 @@
       
       <strong>Styles:</strong>
       <%= form.collection_check_boxes :style_ids, Style.all, :id, :name do |checkbox| %>
-        <% checkbox.label(class: "checkbox-inline") { checkbox.check_box(class: "checkbox") + checkbox.text } %>
+        <% checkbox.label(class: "checkbox-inline input_checkbox") { checkbox.check_box(class: "checkbox") + checkbox.text } %>
       <% end %>
       <br/><br/>
       <strong>Ingredients:</strong>
       <%= form.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |checkbox| %>
-        <% checkbox.label(class: "checkbox-inline") { checkbox.check_box(class: "checkbox") + checkbox.text } %>
+        <% checkbox.label(class: "checkbox-inline input_checkbox") { checkbox.check_box(class: "checkbox") + checkbox.text } %>
       <% end %>
       <br/><br/>
 
