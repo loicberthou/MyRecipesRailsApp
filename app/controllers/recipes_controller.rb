@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
   
   before_action :set_recipe, only: [:edit, :update, :show, :like]
-  before_action :require_user, except: [:show, :index]
+  before_action :require_user, except: [:show, :index, :like]
+  before_action :require_user_like, only: [:like]
   before_action :require_same_user, only: [:edit, :update]
   
   def index
@@ -67,4 +68,11 @@ class RecipesController < ApplicationController
       end
     end
 
+  def require_user_like
+    if !logged_in?
+      flash[:danger] = "You must be logged in to perform that action"
+      redirect_to :back
+    end
+  end
+    
 end
